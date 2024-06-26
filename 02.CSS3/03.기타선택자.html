@@ -85,8 +85,71 @@
 <ul>ul</ul>
 <div>div5</div>
 
+<br>
 
+<hr>
 
+<h2>4. 반응 선택자</h2>
+<p>사용자의 움직임에 따라 선택되는 선택자</p>
+<pre>
+    *해당 요소에 클릭이 되었을 경우 스타일 부여
+    선택자:active{
+        스타일속성: 값;
+    }
 
+    *해당 요소에 마우스가 올라가는 순간 스타일 부여
+    선택자:hover{
+        스타일속성: 값;
+    }
+
+</pre>
+
+    <div id="active-test" class="area">active테스트</div>
+    <br><br>
+    <div id="hover-test" class="area">hover테스트</div>
+
+    <hr>
+
+    <h2>5. 상태 선택자</h2>
+    <p>
+        요소의 상태에 따라 선택되는 선택자
+    </p>
+    <pre>
+        1) 체크된(checked) 상태의 요소내에
+        선택자 : checked {
+            스타일속성:값;
+        }
+    </pre>
+
+    <input type="checkbox" id="apple">
+    <label for="apple">사과</label>
+
+    <input type="checkbox" id="bananan">
+    <label for="bananan">바나나</label>
+
+    <pre>
+        2) 초점(focus)가 맞춰진 input 요소 선택
+        선택자 : focus {
+            스타일속성:값;
+        }
+    </pre>
+
+    아이디 : <input name="userId">
+    <br>
+    비밀번호 : <input type="password" name="userpwd">
+
+    <pre>
+        3) 활성화(enabled)가 맞춰진 input 요소 선택
+        선택자 : enabled {
+            스타일속성:값;
+        }
+
+        4) 비활성화(disabled)가 맞춰진 input 요소 선택
+        선택자 : disabled {
+            스타일속성:값;
+        }
+    </pre>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
