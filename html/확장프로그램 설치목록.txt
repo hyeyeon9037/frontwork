@@ -1,6 +1,0 @@
-vscode 확장 프로그램
-
-OPen in Browser : alt + b
-Quick Html Previewer : alt + q  (다때고) + s || f1
-htmltagwrap : alt + w
-auto rename tag  :  
