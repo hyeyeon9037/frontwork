@@ -46,3 +46,40 @@ div[class*=i]{
  background-color: coral;
 } 
  */
+
+
+ /* 2. 자손 선택자와 후손 선택자 */
+
+/* id가 test1인 요소의 자손들중 h4요소만 선택 */
+#test1>h4 {
+    background-color: orange;
+}
+
+/* ul의 자손 요소들 선택*/
+#test1>ul>li {
+    background-color: beige;
+}
+
+/* id가 test1인 요소의 후손들 중 li 요소 선택 */
+#test1 li {
+    color: pink;
+}
+
+
+/* 3. 동위 선택자 */
+/* id가 test2인 형제들 중 바로 뒤에 나오는 div 요소 하나만 */
+#test2+div{
+    background-color: aquamarine;
+}
+
+#test2+ul{
+    background-color: yellow; /*선택이 안됨(바로 뒤의 요소가 아니기 떄문이다)*/
+}
+
+/* id가 test2인 형제들 중 div요소들 모두 선택 */
+#test2~div {color: brown;}
+
+
+
+
+
