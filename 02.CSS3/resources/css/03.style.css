@@ -80,6 +80,40 @@ div[class*=i]{
 #test2~div {color: brown;}
 
 
+.area {
+    width: 100px;
+    height: 100px;
+    background-color: yellowgreen;
+}
+
+#active-test:active{
+    background-color: blueviolet;
+    color: white;
+}
 
 
+/* 5. 상태 선택자 */
+input[type=checkbox] :checked {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* 체크박스가 선택되면 글자도 커지게 스타일 지정 */
+input[name^=user]:focus{
+    background-color: pink;
+}
+
+button:enabled{
+    background-color: teal;
+}
+
+button:disabled{
+    background-color: darkmagenta;
+}
+
+button:enabled:hover{
+    width: 30px;
+    height: 30px;
+}
 
