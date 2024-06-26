@@ -1,0 +1,48 @@
+h2 { color: red;}
+
+/*1. 속성 선택자*/
+ /* div요소들 중 name 속성 값이 name1과 "일치"하는 요소 */
+ div[name=name1] {
+    background-color: orange;
+ }
+
+/* div요소들 중 name 속성 값이 name1과 "포함"하는 요소(공백으로 구분, 단어단위로) */
+
+div[name~=name1]{
+    color: blueviolet;
+}
+
+
+/* div요소들 중 class속성값이 class로 "시작"하는 요소 */
+div[class^=class] {
+    background-color: aquamarine;
+}
+
+/* div요소들 중 class속성값이 class로 "시작"하는 요소(단어단위로 -로 구분) */
+
+div[class|=class]{
+    color: blue;
+}
+
+/* div요소들 중 class속성값이 "끝"나는 요소 */
+div[class$=ss]{
+    font-size: 20px;
+}
+
+/* div요소들 중 class속성값이 i을 "포함"하는 요소 */
+div[class*=i]{
+    border : 1px dotted;
+}
+
+/* 응용 : class속성값이 div-class인 요소들 중에서 name속성값이
+          name3이 포함되어있는 요소에 배경색 스타일 적용하기 */
+.div-class[name*=name3]{
+    background-color: coral;
+}
+
+/* 응용 : class속성값이 div-class인 요소들 중에서 name속성값이
+          name3이 포함(단어로)되어있는 요소에 배경색 스타일 적용하기 
+ .div-class[name~=name3]{
+ background-color: coral;
+} 
+ */
