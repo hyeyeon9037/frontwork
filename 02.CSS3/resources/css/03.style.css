@@ -80,6 +80,7 @@ div[class*=i]{
 #test2~div {color: brown;}
 
 
+/* 4. 반응 선택자 */
 .area {
     width: 100px;
     height: 100px;
@@ -91,29 +92,108 @@ div[class*=i]{
     color: white;
 }
 
+#hover-test:hover{
+    background-color: orange;
+    color: chartreuse;
+}
 
-/* 5. 상태 선택자 */
-input[type=checkbox] :checked {
+
+#link:link{color: darkslategrey;}
+/* 누르기 전 색깔 */
+#link:hover{color: deeppink;}
+/* 마우스를 올려 놓기만 하면 색깔이 나옴*/
+#link:active{color: aqua;}
+/* 눌렀을 때의 색깔 */
+#link:visited{color: tomato;}
+/* 누른 후 색깔 */
+
+
+/* =================== 5. 상태 선택자 ================= */
+input[type=checkbox]:checked {
     width: 30px;
     height: 30px;
 }
 
+/* 체크박스가 선택되면 글자도 커지게 스타일지정 */
+input[type=checkbox]:checked+label{
+    font-size: 30px;
+}
 
-/* 체크박스가 선택되면 글자도 커지게 스타일 지정 */
-input[name^=user]:focus{
+
+input[name^=user]:focus {
     background-color: pink;
 }
 
-button:enabled{
-    background-color: teal;
+button:enabled {
+    background-color: rgb(188, 125, 248);
 }
 
-button:disabled{
-    background-color: darkmagenta;
+button:disabled {
+    background-color: yellowgreen;
 }
 
-button:enabled:hover{
-    width: 30px;
-    height: 30px;
+
+
+/* ===================6. 일반 구조 선택자 ================= */
+
+#summer :first-child {
+    background-color: lightgray;
 }
+
+#summer :last-child {
+    background-color: lightcoral;
+}
+
+#summer :nth-child(2) {
+    background-color: lightcyan;
+}
+/* 두번째 색 */
+
+#summer :nth-child(2n) {
+    color: royalblue;
+}
+/* 짝수번째 색 (n=0부터 1씩 증가)*/
+#summer :nth-child(2n+1) {
+    color: greenyellow;
+}
+/* 홀수번째 색 (n=0부터 1씩 증가) */
+
+
+/* ===================7. 형태 구조 선택자 ================= */
+#fall p:first-of-type {
+    background-color: lightgreen;
+}
+
+/*  오류가 난 이유는?  : 첫번째는 div인데 p태그로 잘못 기재했다고 인식이 안되는 것임.
+    p태그로 하면 반드시 of type을 써야함
+    p대신 div태그를 넣으면 실행됨
+    #fail p:first-child {
+    background-color: lightgray;
+} */
+
+#fall p:last-of-type{
+    background-color: lightgray;
+}
+
+#fall p:nth-last-of-type(3){
+    background-color: lightpink;
+}
+
+#fall p:nth-last-of-type(2n){
+    background-color: lightsteelblue;
+}
+
+#fall p:nth-last-of-type(2n+1){
+    background-color: lightskyblue;
+}
+
+/* =================== 8. 부정 선택자 ================= */
+
+#winter :not(p:first-child) {
+    color: darkorange;
+}
+
+
+
+
 
