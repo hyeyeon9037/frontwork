@@ -1,0 +1,29 @@
+/* 전체 */
+body {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* header */
+header { height: 350px; }
+#logo {
+    float: left; 
+    height: 40px;
+    margin: 5px 0;
+}
+header>form {float: right; margin-top: 11px;}
+#titleImg {
+    clear: both;
+    height: 150px;
+    width: 100%;
+}
+
+.navi {
+    background-color: palevioletred;
+    width: 500px;
+    height: 20px;
+}
+
+section > article {
+    color: pink;
+}
