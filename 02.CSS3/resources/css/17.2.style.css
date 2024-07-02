@@ -1,0 +1,63 @@
+#wrapper {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 120px;
+    background-color: cornflowerblue;
+    border-bottom: 1px solid;
+}
+
+#fixed {
+    display: none;
+}
+
+.header-text {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    line-height: 120px;
+
+}
+
+/* 본문 */
+
+.content {
+    float: left;
+    width: 70%;
+    height: 400px;
+    padding: 3%;
+    background-color: darkgray;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* aside */
+
+.right-side {
+    float: right;
+    width: 18%;
+    height: 400px;
+    padding: 3%;
+    background-color: antiquewhite;
+}
+
+footer {
+    clear: both;
+    width: 100%;
+    height: 120px;
+    background-color: green;
+    line-height: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+
