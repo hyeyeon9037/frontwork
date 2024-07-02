@@ -1,0 +1,48 @@
+header {
+    text-align: center;
+}
+#menus {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.menu-item {
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+#menu1 {
+    background: url("../img/IMG_8653.jpg") no-repeat center;
+}
+#menu2 {
+    background: url("../img/IMG_8658.jpg") no-repeat center;
+}
+#menu3 {
+    background: url("../img/IMG_8663.jpg") no-repeat center;
+}
+#menu4 {
+    background: url("../img/IMG_8665.jpg") no-repeat center;
+}
+#menu5 {
+    background: url("../img/IMG_8668.jpg") no-repeat center;
+}
+#menu6 {
+    background: url("../img/IMG_8668.jpg") no-repeat center;
+}
+#menu7 {
+    background: url("../img/IMG_8668.jpg") no-repeat center;
+}
+#menu8 {
+    background: url("../img/IMG_8668.jpg") no-repeat center;
+}
+#menu9 {
+    background: url("../img/IMG_8668.jpg") no-repeat center;
+}
+#menu10 {
+    background: url("../img/IMG_8668.jpg") no-repeat center;
+}
