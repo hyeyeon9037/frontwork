@@ -60,3 +60,11 @@
 #lineH1 {line-height: 30px;}
 #lineH2 {line-height: 3em;}
 #lineH3 {line-height: 55%;}
+
+#test {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    text-align: center;
+    line-height: 200px;
+}
