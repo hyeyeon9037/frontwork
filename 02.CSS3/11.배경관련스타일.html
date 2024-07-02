@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="resources/css/11.style.css" rel="stylesheet">
+    <title>배경관련스타일</title>
+</head>
+<body>
+    <h1>배경 관련 스타일 (background~)</h1>
+    <h3>background-color : 배경색을 지정하고자 할 때</h3>
+
+    
+    <div id="div-bg">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Itaque reprehenderit quae velit laboriosam exercitationem magnam.
+        Vitae ab odit, itaque impedit repellendus, odio quam fugit ad voluptatum reiciendis nisi natus!
+        Laboriosam!
+    </div>
+
+    <hr>
+
+    <h3>background-clip : 배경 을 적용시키고자 하는 범위 지정할 때 사용</h3>
+
+    <pre>
+        선택자 {
+            background-clip : border-box(기본값) | padding-box | content-box
+        }
+    </pre>
+    <!-- (.div-test#div$>lorem)*3 -->
+    <div class="div-test" id="div1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente aperiam optio, cum deleniti a nemo ad modi animi quos nobis saepe natus consectetur, exercitationem illo, incidunt doloremque quo fuga reprehenderit?</div>
+    <div class="div-test" id="div2">Distinctio, optio quae! Cumque dicta ducimus tempora earum autem quo sint a veniam? Accusamus voluptas voluptatum cupiditate hic consequatur pariatur omnis eligendi incidunt deleniti sed debitis, provident repudiandae dolorem recusandae?</div>
+    <div class="div-test" id="div3">Eligendi fugit delectus vitae assumenda autem deserunt facere? Itaque, aperiam aut dicta perferendis facere temporibus tenetur, obcaecati laboriosam eligendi facilis voluptate laborum. Voluptates, amet at odit eum ratione hic numquam!</div>
+
+    <hr>
+
+    <h3>배경 이미지 넣기</h3>
+    <pre>
+        선택자 {
+            background-image:ur("이미지경로");
+            background-repeat | repeat-x | repeat-y | no-repeat
+            background-size : auto | contain | cover | px px | % % 
+            background-position : 좌/우/가운데   위/아래/가운데 |px px| % %;
+            background-attachment:scroll | fixed;
+        }
+    </pre>
+
+
+    <div id="bg-img"></div>
+    
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
