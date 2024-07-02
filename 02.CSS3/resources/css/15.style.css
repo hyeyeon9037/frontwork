@@ -1,0 +1,20 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+    border: 2px solid;
+    height: 50vh;
+    width: 600px;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li {
+    width: 100px;
+    height: 100px;
+    background-color: lavender;
+    border: 1px solid;
+    margin: 5px;
+    text-align: center;
+}
