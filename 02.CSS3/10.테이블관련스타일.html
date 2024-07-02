@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x테이블 관련 스타일</title>
+    <style>
+        table {
+            border: 1px solid;
+            border-collapse: collapse; /* 기본값 : separate 표 테두리와 셀테두리 분리하기, 합치기 */
+            border-spacing: 10px 20px;
+            /* spacing 간격 */
+        }
+        thead, tfoot {
+            background-color: rgb(145, 180, 180);
+        }
+
+        tbody {
+            background-color: beige;
+        }
+
+        th, td {
+            width: 150px;
+            height: 100px;
+            padding: 5px;
+            text-align: center; 
+            vertical-align: middle; /*테이블에서만 사용 가능 top | middle(기본값) | botton*/
+            border: 1px dashed blue;
+            word-break: break-all;
+
+        }
+
+        .border {
+            border-top: 2px double red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>테이블 관련 스타일</h1>
+    <table>
+        <caption>[표1] 웹 브라우저의 종류</caption>
+        <thead>
+            <tr>
+                <th>브라우저명</th>
+                <th>제조사</th>
+               <!-- <th>홈페이지</th> -->
+                <th>hompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompagehompage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Edge</td>
+                <td>Ms</td>
+                <td>https://microsoft.com</td>
+            </tr>
+            <tr>
+                <td>Chrome</td>
+                <td>Google</td>
+                <td>https://google.com</td>
+            </tr>
+            <tr>
+                <td>Safari</td>
+                <td>Apple</td>
+                <td>https://apple.com</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">총 브라우저 수</td>
+                <td>3</td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+</body>
+</html>
