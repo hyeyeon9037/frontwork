@@ -148,6 +148,42 @@
         }
     </script>
 
+
+<h3> 4. 클래스를 이용하여 요소 가져오기 </h3>
+
+<div class="test"></div>
+<p class="test"></p>
+<ul class="test">
+    <li></li>
+    <li></li>
+</ul>
+<pre class="test test1"></pre>
+
+
+<button onclick="accessClass();">class로 접근</button>
+
+<script>
+    function accessClass() {
+        // class 속성으로 요소를 가져올 때
+        // document.getElementByClassName("class속성 값") → 선택된 요소들을 배열에 담아서 반환한다.
+
+        var arr = document.getElementsByClassName("test");
+        console.log(arr);
+
+        for(var i=0; i<arr.length; i++){
+            console.log(arr[i]);
+            
+        }
+
+    }
+</script>
+
+
+
+
+
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
