@@ -214,7 +214,7 @@
 
     <script>
         function typeTset() {
-            // 문자열 : 쌍따움표(""), 외따움표(''), 백틱(``) 가능하다.
+            // 문자열 : 쌍따옴표(""), 외따움표(''), 백틱(``) 가능하다.
             const name = '홍길동';
             const age = 23;
             const flag = true;
@@ -234,6 +234,7 @@
             let noVal;
 
             // typeof 변수명 : 자료형 확인시 사용하는 함수
+            console.log("=====================================");
             console.log(typeof name, name);
             console.log(typeof age, age);
             console.log(typeof flag, flag);
@@ -242,6 +243,36 @@
             console.log(typeof user, user);
             console.log(typeof testfn, testfn);
             console.log(typeof noVal, noVal);
+
+            // 문자열 : 쌍따옴표(""), 외따움표(''), 백틱(``) 가능하다.
+            // 백틱(ES6) 사용시 문자열과 변수 사용시 +기호 및 \n을 넣지 않고도 사용 가능!
+
+
+            let str = 'hello' + name + ' 나이 : ' + age;
+            //백틱으로 하면?
+            let str1 =`hello${name} 나이 : ${age}`; 
+
+
+            let str3 = '이름\n홍길동';
+            //백틱으로 하면?
+            let str4 = `이름
+            홍길동`;
+
+            
+            divE1.innerHTML = typeof name + ', ' + name + '<br>';
+            //백틱으로 하면?
+            divE1.innerHTML = `${typeof name}, ${name}<br>`;
+            divE1.innerHTML += `${typeof age}, ${age}<br>`;
+            divE1.innerHTML += `${typeof flag}, ${flag}<br>`;
+            divE1.innerHTML += `${typeof hobby}, ${hobby}<br>`;
+            divE1.innerHTML += `${typeof divE1}, ${divE1}<br>`;
+            divE1.innerHTML += `${typeof user}, ${user}<br>`;
+            divE1.innerHTML += `${typeof testfn}, ${testfn}<br>`;
+            divE1.innerHTML += `${typeof noVal}, ${noVal}<br>`;
+
+            // 화면에 출력(텍스트 출력되기 대문에 콘솔출력과 결과가 다를수가 있다.)
+            
+
 
         }
     </script>
