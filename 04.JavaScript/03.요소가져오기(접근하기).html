@@ -149,7 +149,7 @@
     </script>
 
 
-<h3> 4. 클래스를 이용하여 요소 가져오기 </h3>
+<h3> 4) 클래스를 이용하여 요소 가져오기 </h3>
 
 <div class="test"></div>
 <p class="test"></p>
@@ -172,16 +172,77 @@
 
         for(var i=0; i<arr.length; i++){
             console.log(arr[i]);
-            
         }
 
     }
 </script>
 
+    <h3> 5) 내가 원하는 요소를 자유자재로 가져오기(선택자 활용)</h3>
+
+    <div id="test2">테스트입니다</div>
+    <div class="test2">
+        <h2>안뇽</h2>
+        <h2>조은아침</h2>
+    </div>
+    <span>ㅎㅎㅎㅎ</span>
+    <br>
+
+    <button onclick="accessSelector();">클릭</button>
+
+    <script>
+        function accessSelector() {
+            // 선택자를 이용하여 요소를 가져오고자 할 때
+            // document.querySelector("선택자") → 선택된 첫번째 요소 객체 하나만 반환
+            // document.querySelectorAll("선택자") → 선택된 요소 객체들을 배열에 담아서 반환
+
+            var divE1 = document.querySelector("#test2");
+            var h2E1 = document.querySelector(".test2>h2");
+            console.log(h2E1);
 
 
+            var spanE1 = document.querySelector(".test2+span");
+            console.log(spanE1);
+            // 형제들 중에서 span을 가져오시오 라는 뜻
+
+            var h2E2 = document.querySelectorAll(".test2>h2");
+            for(var i=0; i<h2E2.length; i++){
+                console.log(h2E2[i]);
+            }
+        }
+    </script>
 
 
+<br>
+
+    <!-- div>(p.cls$>lorem)*3 -->
+    <div>
+        <p class="cls1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam suscipit hic nesciunt, molestiae aspernatur sit saepe facere sint. Cumque reprehenderit dolorum porro facere sequi neque molestiae quis minus illo enim?</p>
+        <p class="cls2">Sed quibusdam, minima alias sapiente eum dolor perferendis nisi aut dolorum ducimus unde libero veritatis. Minus facere, molestiae totam nisi excepturi voluptates, quaerat obcaecati possimus, accusamus pariatur porro omnis inventore.</p>
+        <p class="cls1">Rerum quidem iusto sequi nisi. Numquam, rerum! Facilis neque delectus ab, eos dolore et impedit amet fugiat rerum, aut corrupti, illum nostrum architecto nemo ipsa ducimus nesciunt sed eaque tenetur?</p>
+    </div>
+
+    <button onclick="select();">querySelector</button>
+    <button onclick="selectAll();">querySelectorAll</button>
+
+
+    <script>
+        function select(){
+            var p2 = document.querySelector(".cls2");
+            p2.style.color = "hotpink";
+            // cls2가 하나이기 때문에 가능하다.
+        }
+
+        function selectAll(){
+            var p = document.querySelectorAll(".cls1");
+            // p.style.color = "green";
+            // cls1이 두개이기 때문에 불가능.
+
+            for(var i=0; i<p.length; i++){
+                p[i].style.color = "green";
+            }
+
+        }
+    </script>
 
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
