@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수와 자료형</title>
+    <style>
+        .area {
+            border: 1px solid;
+            width: 400px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    <h2>변수 선언 시 var뿐만 아니라 let, const를 이용하여 선언 가능</h2>
+
+    <h3>* var, let, const의 차이점</h3>
+
+    <h4> 1) 변수 선언 방법</h4>
+
+    <button onclick="diffDeclare();">클릭</button>
+
+    <script>
+        function diffDeclare() {
+            // 1. var은 중복선언 가능(단점), 재할당 가능
+            var userId = "user01";
+            console.log(userId);
+
+            var userId = "user02";
+            console.log(userId);
+
+            userId = "user03" // 재할당
+            console.log(userId);
+
+            console.log("----------------------------");
+
+            // 2. let은 중복선언 불가능, 재할당 가능
+
+            let userPw = "pass01";
+            console.log(userPw);
+
+            // 중복 선언 불가능 !!
+            // let userPw = "pass02";
+            // console.log(userPw);
+            
+            userPw = "pass03"; // 재할당
+            console.log(userPw);
+            
+            console.log("----------------------------");
+
+            // 3. const는 중복선언 불가능, 재할당 불가능(상수 같은 개념 == 한번 초기화된 값 변경 불가)
+            //    그러나 객체안의 자료는 변경이 가능하다!!
+
+            const userName = "홍길동";
+            console.log(userName);
+
+            // 중복 선언 불가능 !!
+            // const userName = "김말똥";
+
+            // 재할당 불가능 !! → 자바스크립에선 오류가 안뜨지만 콘솔에서는 오류가 뜬다.
+            // userName = "김말똥";
+            // console.logO(userName);
+
+            /*
+                * var은 자유롭게 변수 선언, 사용할 수 있다는 장점이 있지만,
+                중복된 변수가 남발할 수 있고 의도치 않게 값이 변경되어있을 수 있다. <가장 큰 단점>
+                → 단점을 보완하여 나온 것이 let, const이다.
+
+                * 권장사항 : let, const를 위주로 사용한다.
+
+            */
+            
+        }
+    </script>
+
+    <h4>2) 스코프 (사용가능 범위)</h4>
+    <button onclick="diffScope();">클릭</button>
+
+    <script>
+        function diffScope() {
+            // 1. var : 변수가 선언된 "함수 영역" 내에서 사용가능
+            var name = "홍길동";
+            console.log(name);
+
+            if(true) {
+                var age = 20;
+            }
+
+            console.log(age);
+
+            for(var i=0; i<10; i++) {
+
+            }
+           
+            console.log(i);
+
+            console.log("----------------------------");
+
+
+            // 2. let, const (block scope) == 변수가 선언된 블럭{} 내에서만 사용가능 ( 자바와 유사 )
+           
+            // 함수안에서 쓸 수있는 전역변수
+            let address = "서울";
+
+            if(true) {
+                //if 안에서 쓰는 지역변수
+                let gender = "M";
+                const hobby = "운동";
+
+                scopeTest(); // 함수호출
+            }
+            // 사용 불가능
+            // console.log(gender); 
+            // console.log(hobby);
+            
+
+            function scopeTest() {
+                console.log(name);
+            }
+
+        }
+    </script>
+
+    <h3>* 변수 선언 위치에 따른 전역변수/ 지역변수</h3>
+
+    <script>
+        // 현재 문서가 다 로딩된 직후에 실행시킬 코드를 넣어준다
+        // 로딩이 다 되면 콘솔에 그냥 바로 뜸
+
+        // window.onload = function() { 현재 문서가 다 로딩된 직후에 실행시킬 코드 }
+        // window.onload = function() {
+        //     console.log("문서 로딩 완료!");
+        // }
+
+        // 특정 함수 영역 밖에 선언된 변수는 전역변수 (어디든지 사용이 가능하다.)
+        var declareVar = "var 전역변수";
+        let declareLet = "let 전역변수";
+        const declareConst = "const 전역변수";
+
+        // 변수명 앞에 아무런 키워드가 없으면 전역변수
+        declareNone = "그냥 전역변수"
+
+        window.onload = function() {
+            // console.log(declareVar);
+            // console.log(declareLet);
+            // console.log(declareConst);
+            // console.log(declareNone);            
+
+            // 전역변수와 지역변수의 이름이 동일하면 지역변수가 우선순위가 더 높다
+            // 그래서 위에있는 전역변수를 주석을달아야함!
+
+            // 전역변수와 동일한 이름으로 지역변수 선언
+            var declareVar = "var 지역변수";
+            let declareLet = "let 지역변수";
+            const declareConst = "const 지역변수";
+
+            console.log(declareVar);
+            console.log(declareLet);
+            console.log(declareConst);
+            console.log(declareNone);
+
+            console.log("----------------------------");
+
+            // 만약 전역변수에 접근하고 싶다면 window. 또는 this. 으로 접근이 가능하다.
+            console.log(window.declareVar);
+            console.log(this.declareVar);
+
+
+            // let, const는 전역변수를 불러올 수 없음! → undefine가 뜬다
+            console.log(this.declareLet);
+            console.log(window.declareConst); 
+            
+            declareNone = "얘는 뭘까용!?";
+            console.log(declareNone);
+            console.log(this.declareNone); // 위에있는 "그냥 전역변수"를 "얘는 뭘까용!?"으로 ★재할당★을 해준 것
+
+            test(); // 함수 호출
+        }
+
+        function test() {
+
+            console.log("----------------------------");
+
+            console.log(declareNone);
+            console.log(declareVar);
+            console.log(declareLet);
+            console.log(declareConst);
+        }
+
+    </script>
+
+    <h3>* 자료형 </h3>
+    <p>
+        Dynamic Type : 변수 선언 시 자료형을 별도로 지정하지 않음 ( 자료형의 개념이 없는건 아니다. )<br>
+        → 변수 별로 타입이 지정되지 않고, 대입되는 값에 의해 타입이 결정된다.
+    </p>
+
+    <h4> 자바스크립트의 자료형</h4>
+
+    <ul>
+        <li>string(문자열타입)</li>
+        <li>number(숫자)</li>
+        <li>boolean(논리값)</li>
+        <li>object(객체)</li>
+        <li>function(함수)</li>
+        <li>undefine(초기화가 안 된 변수)</li>
+    </ul>
+
+
+    <button onclick="typeTset();">자료형 테스트</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function typeTset() {
+            // 문자열 : 쌍따움표(""), 외따움표(''), 백틱(``) 가능하다.
+            const name = '홍길동';
+            const age = 23;
+            const flag = true;
+            const hobby = ['영화','음악','낮잠']; //배열 객체
+            const divE1 = document.querySelector('#area1'); // div 요소 객체
+
+            //javascript에서의 객체 선언
+            const user = {name:'김말똥', age:25, id:'user01' } // 숫자는 따움표 넣어주는 순간 문자열로 받기 때문에 쓰지말자.
+
+            //익명함수
+            const testfn = function() {
+                alert('ㅎ3ㅎ');
+            }
+
+            // 상수는 초기화 하지 않으면 오류
+            // const noVal;
+            let noVal;
+
+            // typeof 변수명 : 자료형 확인시 사용하는 함수
+            console.log(typeof name, name);
+            console.log(typeof age, age);
+            console.log(typeof flag, flag);
+            console.log(typeof hobby, hobby);
+            console.log(typeof divE1, divE1);
+            console.log(typeof user, user);
+            console.log(typeof testfn, testfn);
+            console.log(typeof noVal, noVal);
+
+        }
+    </script>
+
+
+
+
+
+
+</body>
+</html>
