@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <style>
+        .area {
+            border: 1px solid;
+            padding: 5px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수</h1>
+
+    <h2>함수 선언하는 방법</h2>
+
+    <ol>
+        <li>선언적 함수(Function declaration) : function키워드, 함수명</li>
+        <li>익명 함수(Function Expression) : 변수에 익명 함수를 대입하는 방식</li>
+        <li>화살표 함수(Arrow Function) : 익명함수를 간단히 작성하는 방법(ES6(ES2015)에 추가)</li>
+        <li>즉시 실행 함수 iife(Immeiately Invoked Function Expression)</li>
+        <ul>
+            <li>선언과 호출</li>
+            <li>변수를 캡슐화처리 유용</li>
+        </ul>
+    </ol>
+
+    <h3>1) 선언적 함수</h3>
+
+<pre>
+    fuction 함수명([매개변수, 매개변수, ...]) {
+        해당 함수 호출 시 실행할 코드;
+        [return 결과값;]
+    }
+</pre>
+
+
+<button onclick="test1();">실행확인</button>
+<div class="area" id="area1"></div>
+
+<script>
+    function test1() {
+        document.getElementById('area1').innerHTML = 'test1() 함수 실행됨 <br>';
+    }
+
+</script>
+
+<hr>
+
+<h3>2) 익명 함수</h3>
+<pre>
+    변수 | 속성 = function([매개변수, 매개변수, ...]) {
+        해당 함수 호출시 실항할 코드;
+        [return 결과값;]
+    }
+
+    * 주로 이벤트 핸들러 작성시 (사용 예를 들면 클릭했을때 ~하시오 일떄)
+</pre>
+
+<button id="btn">실행확인</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        let btn = document.getElementById('btn');
+            //이벤트 속성에 대입되는 function => 이벤트 핸들러
+            btn.onclick = function() {
+                document.getElementById('area2').innerHTML = '이벤트 핸들러를 통해 실행됨';
+            }
+        
+    </script>
+
+
+<hr>
+
+<h3>3)화살표 함수</h3>
+
+<pre>
+    - 본문에 리턴만 있을 때
+        변수 = ([매개변수, 매개변수, ... ]) => 리턴값
+
+    - 본문이 여러줄 일 때
+        변수 = ([매개변수, 매개변수, ...]) => {
+            해당 함수 호출 시 실행할 코드;
+            [return 결과값;]
+        }
+
+
+    </pre>
+
+    <button id="btn3">실행확인</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        const area3 = document.getElementById('area3');
+        const btn3 = document.getElementById('btn3');
+
+        
+        // btn3.onclick = function(){
+        //     return area3.innerHtml = '매개변수가 없는 화살표 함수 실행';
+        // }
+
+        //위 의 익명함수를 화살표 함수로 변환한 것!
+        btn3.onclick = () => area3.innerHTML = '매개변수가 없는 화살표 함수 실행';
+
+    </script>
+
+
+    <h3> 4) 즉시 실행 함수</h3>
+
+<pre>
+    - 정의 하면서 즉시 실행되는 함수
+    - 단 한 번만 호출 됨
+    ([변수] = function([매개변수, 매개변수, ...]){
+        해당 함수 호출 시 실행할 코드;
+    }) (인자, 인자, ...) <- 인자는 매개변수가 있으면 넣고 아니면 안넣어도 댄다.
+
+</pre>
+
+<script>
+    /*문서가 로딩된 직후 마지막 1개만 실행된다.
+    window.onload = function(){
+        console.log('onload');
+    } 
+    
+    window.onload = function(){
+        console.log('onload2');
+    }  // 딱한번 실행하기 때문에 맨 마지막 껏만 실행 돼서 onload2만 뜬다.
+*/
+    // 즉시실행 함수는 함수의 갯수만큼 실행된다.
+     (function(){
+         console.log('iife');
+    })();
+
+    (function(name){
+        console.log(`Hi, ${name}`);
+        const k = 999;
+        console.log(k);
+    })('철수');
+
+    (()=> console.log('iife'))();
+    (name => console.log(`Hi, ${name}`))('영희');
+</script>
+
+<h2>함수의 매개변수</h2>
+
+    <!--함수에서의 매개변수는 모든 자료형이 가능하다.-->
+    <button onclick="test2('안녕하세요');">문자매개변수</button>
+    <button onclick="test2(2);">숫자매개변수</button>
+    <button onclick="test2([1,2,3]);">숫자매개변수</button>
+    <button onclick="test2(true);">논리매개변수</button>
+
+    <div class="area" id="area4"></div>
+
+    <br>
+
+    <!-- 매개변수의 갯수가 맞지 않아도 오류나지 않는다. (많으면 뒤에 무시, 적으면 underfinded) -->
+    <button onclick="test2(prompt('이름입력'));">prompt매개변수</button>
+    <button onclick="test2('안녕하세요','반갑습니다');">문자2개매개변수</button>
+    <button onclick="test2();">매개변수없음</button>
+    
+
+    
+    <script>
+        function test2(value){ // 매개변수는 자료형 지정X, 선언구문 X  → 변수명만
+            document.getElementById('area4').innerHTML = value;
+        }
+    </script>
+
+
+
+    <h3> * 매개변수 관련 arguments배열 </h3>
+    <p>
+        함수 호출 시 전달되는 값은 내부적으로 arguments 배열에 담김<br>
+        * arguments : 모든 함수마다 내부적으로 하나씩 존재하는 배열 객체
+    </p>
+
+    <button onclick="test3(11,12,1,5,7);">실행확인</button>
+    <div class="area" id="area5"></div>
+
+    <script>
+        function test3(){
+            console.log(arguments);
+            console.log(arguments[1]);
+
+            let area4 = document.getElementById('area5');
+
+            let sum = 0;
+            for(let ele of arguments) {
+                sum += ele;
+            }
+            area5.innerHTML = `합계 : ${sum}<br>`;
+            area5.innerHTML += `평균 : ${sum/arguments.length}<br>`;
+
+            // for in 으로 arguments에 값들을 하나씩 출력
+
+            for(let i in arguments) {
+                area5.innerHTML += ` ${arguments[i]}, `;
+            }
+
+        }
+    </script>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
