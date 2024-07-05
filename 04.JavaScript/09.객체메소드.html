@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체메소드</title>
+</head>
+<body>
+    <h1> 객체 메소드 </h1>
+    
+    <h3> 객체 메소드 속성 </h3>
+<p> 객체의 속성 중 함수 자료형인 속성을 메소드라고 부른다.</p>
+
+<button onclick="test1();">실행확인</button>
+<div class="area big" id="area1"></div>
+
+<script>
+    function test1() {
+        let area1 = document.getElementById('area1');
+        let name = '이고잉';
+
+        const dog = {
+            name : '똥개',
+            kind : '비글',
+            eat : function(food) { 
+                area1. innerHTML += 'eat메소드가 호출됨<br>';
+                area1. innerHTML += food + '<br>';
+                area1. innerHTML += `${this.kind}종류인 ${this.name}가 ${food}를 먹고 있어요.`;
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>
