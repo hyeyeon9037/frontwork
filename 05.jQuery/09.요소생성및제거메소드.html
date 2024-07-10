@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소생성및제거메소드</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    
+<h1>요소 생성 및 제거</h1>
+<h3> * 동적으로 요소 생성 </h3>
+<button id="btn">요소 생성</button>
+<div id="area1"></div>
+
+<script>
+    $(() => {
+        $('#btn').click(function() {
+            // 1. 문자열 생성
+            // let el1 = '<p>create Element By Text</p>'
+
+            // 2. DOM 메소드로 만드는 방법(createElement, createTextNode)
+            //let el2 = document.createElement('p'); // <p></p>란 소리
+            //let test = document.createTextNode('Create Element By Text');
+            //el2.appendChild(text);
+
+            // 3. jQuery 만드는 방법
+            let el3 = $('<p></p>').text('Create Element By Text');
+            console.log(el3);
+
+        })
+    })
+</script>
+
+
+</body>
+</html>
