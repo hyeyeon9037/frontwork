@@ -9,6 +9,10 @@
         div {
             border: 1px solid;
         }
+        
+        .test {
+            background-color: rgb(105, 130, 214);
+        }
     </style>
 
 </head>
@@ -53,6 +57,161 @@
     })
 </script>
 
+<h3> * 속성 선택자 </h3>
+
+<Pre>
+선택자[속성] : 특정 속성을 가지고 있는 모든 요소 선택
+선택자[속성=특정값] : 속성값이 특정값과 "일치"하는 모든 요소 선택
+선택자[속성~=특정값] : 속성값이 특정값을 "단어로써 포함"하는 모든 요소 선택
+선택자[속성^=특정값] : 속성값이 특정값으로 "시작"하는 모든 요소 선택
+선택자[속성$=특정값] : 속성값이 특정값으로 "끝"는 모든 요소 선택
+선택자[속성*=특정값] : 속성값이 특정값이 "포함되어" 모든 요소 선택
+</Pre>
+
+<input type="text"><br>
+<input type="number" class="test test1"><br>
+<input type="radio"><br>
+<input type="checkbox"><br>
+<input type="button" value="button" class="test2"><br>
+<!-- 
+<script>
+    /*
+    .val('속성값') : 선택한 요소에 value 속성 추가(기존에 있으면 속성값 바꾸기)
+    .attr('속성명', '속성값') : 선택한 요소에 속성을 추가
+    */
+
+    $(() => {
+        $('input[class]').css('backgroundColor', 'yellowgreen');
+        $('input[type=text]').val('change value');
+        $('input[class~=test]').val('12345');
+        $('input[type^=ra]').attr('checked',true);
+        $('input[type$=box]').attr('checked',true);
+
+        // $('input[class*=st2]').css({width:'100px', height:'50px'});
+        // $('input[class*=st2]').val('왕버튼');
+        //위에 두개 줄이면?
+        $('input[class*=st2]').css({width:'100px', height:'50px'}).val('왕버튼');
+            });
+</script>
+-->
+
+<h3>* 입력 양식 선택자(input태그의 type속성에 따라 요소 선택)</h3>
+
+텍스트 상자 : <input type="text"><br>
+일반 버튼 : <input type="button"><br>
+체크박스 : <input type="checkbox"><br>
+첨부파일 : <input type="file"><br>
+비밀번호 : <input type="password"><br>
+라디오 버튼 : <input type="radio"><br>
+초기화 버튼 : <input type="reset"><br>
+제출 버튼 : <input type="submit"><br>
+<!-- 
+<script>
+    $(() => {
+        $(':text').css('backgroundColor', 'red');
+        //  $(':text') 타입이 text 라는뜻
+        $(':button').css({width: '60px', height: '30px'}).val('버튼');
+        $(':checkbox').attr('checked', true);
+        $(':file').css('backgroundColor', 'green');
+        $(':password').css('backgroundColor','yellow');
+        $(':radio').attr('checked', true).css({width:'50px', height:'50px'});
+        $(':reset').css({backgroundColor: 'blue', color: 'white' , border : 'none'}).val('취소'); // 테두리, 문구취소해야함
+        $(':submit').click(() => {
+            // alert('안녕'); // 이러면 클릭시 안녕이 뜸
+            alert($(':password').val()); // 이러면 비밀번호에 있는 값이 뜸
+        });
+
+    });
+
+    // 첨부파일 : 배경색을 연두색으로
+
+    // 비밀번호 : 배경색을 노란색으로
+
+    // 라디오버튼 : checked상태로, 가로 50px, 세로 50px
+
+    // √ 초기화버튼 : 배경색 파란색으로, 글자색 흰색으로, 테두리 없애기, 문구를 취소로 변경
+
+    // √ 제출버튼 : 클릭시 alert('안녕')이 실행 되도록 
+
+    // mouseenter
+    $(':submit').mouseenter(() => {
+        $(this).css('color', 'red');
+        $(this).addClass('test');
+    });
+    // mouseot
+    $(':submit').mouseot(function() {
+        $(this).css('color', '');
+        $(this).addClass('test');
+    });
+</script>
+-->
+
+<h3> * 상태(checked, selecte, disabled, enabled)</h3>
+
+<h4> - checked상태 선택자(radio, chencbox)</h4>
+
+취미 : 
+<input type="checkbox" name="hobby" value="game">게임
+<input type="checkbox" name="hobby" value="movie">영화
+<input type="checkbox" name="hobby" value="music">음악
+<br>
+<button type="button" id="btn">실행확인</button>
+
+<script>
+    $(() => {
+       $('#btn').click(function() {
+        $('input:checked').css({width:'50px', height:'50px'});
+       });
+       
+       $(':checkbox').change(function(){
+            console.log('변경됨'); // 취미를 누를때마다 콘솔이 변경됨
+            console.log($(this).prop('checked'));
+
+            if($(this).prop('checked')) {
+                $(this).css({width:'50px', height: '50px'});
+            }else {
+                $(this).css({width:'', height: ''});
+            }
+
+       });
+    });
+</script>
+
+<h4>- selected상태 선택자(select>option)</h4>
+국적 : 
+<select name="national">
+    <option value="x">선택안함</option>
+    <option value="ko">한국</option>
+    <option value="us">미국</option>
+    <option value="eu">영국</option>
+</select>
+<button type="button" onclick="test();">확인</button>
+<br>
+
+선택한 나라 : <span id="result"></span>
+
+<script>
+    function test(){
+        //현재 선택된 option요소 선택
+        console.log($('option:selected').val());
+        console.log($('option:selected').html());
+
+        $('#result').html($('option:selected').html());
+    }
+</script>
+
+<h4> - disabled, enabled 상새 선택자(input요소들, button등)</h4>
+
+<button type="button">활성화 버튼</button>
+<button type="button" disabled>비활성화 버튼</button>
+
+<script>
+    $(() => {
+        $('button:enabled').css('color','hotpink');
+        $('button:disabled').css('color','black');
+        
+    });
+</script>
 
 
 
@@ -60,5 +219,11 @@
 
 
 
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
