@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>요소생성및제거메소드</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .added{color: aquamarine;}
+        .item{
+            background-color: yellowgreen;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            margin: 5px;
+        }
+        .item span{
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+        }
+        .purple { background-color: purple;}
+    </style>
 
 </head>
 <body>
@@ -18,21 +35,196 @@
     $(() => {
         $('#btn').click(function() {
             // 1. 문자열 생성
-            // let el1 = '<p>create Element By Text</p>'
+            let el1 = '<p>Create Element By Text</p>'
 
-            // 2. DOM 메소드로 만드는 방법(createElement, createTextNode)
-            //let el2 = document.createElement('p'); // <p></p>란 소리
-            //let test = document.createTextNode('Create Element By Text');
-            //el2.appendChild(text);
+            // 2. DOM메소드로 만드는 방법(createElement, createTextNode)
+            
+            let el2 = document.createElement('p');  // <p></p>
+            let text = document.createTextNode('Create Element By Text');
+            el2.appendChild(text);
+            
 
             // 3. jQuery 만드는 방법
-            let el3 = $('<p></p>').text('Create Element By Text');
+            // let el3 = $('<p></p>').text('Create Element By Text');
+            // console.log(el3);
+
+            let el3 = $('<p>Create Element By Text</p>');
             console.log(el3);
+
+            $('#area1').append(el1, el2, el3);
+        })
+    })
+</script>
+<hr>
+
+<h3> * 삽입 관련 메서드 part1</h3>
+<pre>
+선택된 요소를 기준으로 새로운 요소들을 추가 시켜주는 메서드
+
+$(A).append(B) : A요소 내에 뒷부분에 B를 추가(자손/하위)
+$(A).prepend(B) : A요소 내에 앞부분에 B를 추가(자손/하위)
+
+$(A).after(B) : A요소 뒷부분에 B를 추가(동위)
+$(A).before(B) : A요소 앞부분에 B를 추가(동위)
+
+----------------------------------------------> 위에 꺼를 더 많이씀
+
+$(B).appendTo(A) : A요소 내에 뒷부분에 B를 추가(자손/하위)
+$(B).prependTo(A) : A요소 내에 앞부분에 B를 추가(자손/하위)
+
+$(B).insertAfter(A) : A요소 뒷부분에 B를 추가(동위)
+$(B).insertBefore(A) : A요소 앞부분에 B를 추가(동위)
+
+</pre>
+
+<!-- (h1#test$>span{A})*4 -->
+<h1 id="test1">
+    <span>A</span>
+    <span>B</span>
+</h1>
+<h1 id="test2">
+    <span>B</span>
+    <span>A</span>
+</h1>
+<h1 id="test3">
+    <span>A</span>
+</h1>
+<h1 id="test4"><span>B</span></h1>
+
+<script>
+$(() => {
+    // part1
+
+    $('#test1').append('<span class="added">B</span>');
+    $('#test2').prepend('<span class="added">B</span>');
+    
+    $('#test3').before('<span class="added">B</span>');
+    $('#test4').after('<span class="added">B</span>');
+   
+    
+    // part2
+      /*
+    $('<span class="added">B</span>').appendTo('#test1');
+    $('<span class="added">B</span>').prependTo('#test2');
+    
+    $('<span class="added">B</span>').insertBefore('#test3');
+    $('<span class="added">B</span>').insertAfter('#test4');
+    */
+})
+
+</script>
+
+<hr>
+
+<h3> * 요소 객체 복제 메서드 </h3>
+<pre>
+$('선택자').clone([true|false]) : 선택된 요소를 복제하여 반환해주는 메서드
+- true | false : 복제할 요소에 걸려있는 이벤트까지도 복제할 것인지를 지정 (기본값 : false)
+</pre>
+
+<div id="clone-test">
+    <!-- 복제할 요소 -->
+    <div id="item1" class="item">
+        <span>안녕</span>
+    </div>
+</div>
+
+<button id="clone">복제하기</button>
+<div id="clone-result"></div>
+
+<script>
+    $(() => {
+        $('.item').hover(function() { // 콜백함수
+            $(this).addClass('purple');
+        }, function() {
+            $(this).removeClass('purple');
+        })
+
+        // 버튼을 누르면 복제
+        $('#clone').click(function() { // 콜백함수
+           // const copy = $('#item1').clone(); 이벤트복제x : 기본값
+
+           const copy = $('#item1').clone(true);
+            $('#clone-result').append(copy);
+            // 위에 있는 말이랑  다 같은말 !!
+            // $('#clone-result').append($('#item1').clone(true));
+            // $('#item1').clone(true).appendTo('#clone-result');
 
         })
     })
 </script>
 
+<hr>
 
+<h3> * 요소를 제거 및 잘라내기 메소드 </h3>
+<pre>
+    $('선택자').empty() : 선택된 요소의 하위 요소들을 제거해주는 메서드
+    
+    변수 = $('선택자').remove() | detach() : 선택된 요소를 제거한 후 해당 요소를 반환해주는 메소드
+        > remove() : 잘라내기할 때 잘라낸 요소의 이벤트를 가져오지 않는다.
+        > detach() : 잘라내기할 때 잘라낸 요소의 이벤트를 가져온다.
+</pre>
+<div id="remove-test">
+    <div id="remove-test" class="item">
+        <span>안녕</span>
+    </div>
+</div>
+
+<button class="empty">제거</button>
+<button class="remove">잘라내기(remove)</button>
+<button class="detach">잘라내기(detach)</button>
+
+<div id="remove-result"></div>
+
+
+<script>
+    $(() => {
+        $('#empty').click(function() {
+            // $('#item2').empty(); // '#item2' 요소의 하위요소를 삭제
+            $('#remove-test').empty();
+        })
+
+        $('#remove').click(function() {
+            const el = $('#item2').remove();
+            $('#remove-result').append(el);
+        })
+
+        $('#detach').click(function() {
+            const el = $('#item2').detach();
+            $('#remove-result').append(el);
+        })
+    })
+
+
+    /*
+    요소.css('스타일속성, '값') : 변경
+    요소.css('스타일속성') : 반환
+
+    요소.val('텍스트') : 텍스트 변경
+    요소.val() : value의 값 반환
+
+    요소.html|text('텍스트') : 변경
+    요소.html|text() : 반환
+
+    요소.attr('그외속성명','값') : 변경
+    요소.attr('그외속성명') : 반환
+
+    요소.이벤트(function() {})
+
+    dyth.addClass('클래스명') : 클래스 삽입
+    요소.removeClass('클래스명') : 클래스 제거 
+    
+
+    
+    */
+
+
+</script>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
