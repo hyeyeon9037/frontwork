@@ -42,18 +42,21 @@
             </ul>
         </div>
         <div>div(할아버지)
-            <p>(아빠)
-                <li>
-                    <span></span>
-                </li>
+            <p>p(아빠)
+                    <span>span</span>
             </p>
         </div>
     </div>
-
     <script>
         $(() => {
-            
-        });
+            //선택된 요소의 바로위 상위(부모)요소 하나만 선택
+            $('span').parent().css({color:'red', border:'2px solid red'});
+            $('li').parents().css('color','blue');
+            $('li').parents('div').css('border','2px dashed magenta');
+
+            // parentsUntil('선택자') : 선택자 이전까지
+            $('span').parentsUntil('div').css('color','pink');
+        })
     </script>
 </body>
 </html>
