@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>slideDown slideUp</title>
+
+</head>
+<body>
+<!--
+    <h1> * slideDown() slideUp() </h1>
+    <p> 선택된 요소가 점점 말려올라가면서 사라지고 점점 내려오면서 보여지게 하는 메소드 </p>
+
+    <button id="slideup">slideUp</button>
+    <button id="slidedown">slideDown</button>
+    
+
+    <div id="test1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam commodi asperiores saepe atque laudantium eius laboriosam molestiae, voluptatibus aut, delectus quis quae earum incidunt sapiente vero deserunt tempora animi. Omnis.
+        Blanditiis, iure laborum. Sit ipsam temporibus autem natus, recusandae odit non obcaecati molestiae accusantium earum sint. In saepe, praesentium, deserunt quas tempora sed omnis veniam voluptatum nesciunt suscipit architecto voluptas?
+    </div>
+    <div>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor atque tempore nemo at! Temporibus, velit omnis? Officiis accusamus, illum ex eveniet nobis suscipit, vero nemo quo iusto odio molestiae magnam?
+    </div>
+
+    <script>
+        $(() => {
+            $('#slideup').click(function() {
+                $('#test1').slideUp(2000);
+            });
+
+            $('#slidedown').click(function() {
+                $('#test1').slideDown(2000);
+            });
+            
+        })
+    </script>
+    
+    <hr>
+-->
+    <style>
+        div {
+            background: beige;
+            border: 1px solid yellow;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        p {
+            width: 390px;
+            height: 50px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            line-height: 50px;
+            padding-left: 10px;
+            display: none;
+        }
+
+    </style>
+    <h3> 질문에 대한 답 보여주기</h3>
+    <div>Q. 질문입니다.</div>
+    <p>A. 질문에 대한 답변입니다.</p>
+
+    <div>Q. 점심시간은 언제 입니까?</div>
+    <p>A. 12시 50분 입니다.</p>
+
+    <div>Q. 쉬는시간은 언제입니까?</div>
+    <p>A. 매시 50분부터 10분간 휴식입니다</p>
+
+    <div>Q. 종료시간은 언제입니까?</div>
+    <p>A. 오후 6시 30분입니다.</p>
+
+    <div>Q. 본인은 열심히 공부하십니까?.</div>
+    <p>A. 매일 1시간씩 공부하고 있습니다.</p>
+
+</body>
+</html>
