@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈페이지</title>
+</head>
+    <style>
+        li {
+            list-style: none; 
+            float: left;
+            width: 180px;
+            height: 60px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        li a {
+            text-decoration: none; /* 밑줄이 사라짐 */
+            background-color: rgb(238, 238, 201);
+            display: inline-block;
+            width: 180px;
+            height: 60px;
+            color: black;
+            text-align: center;
+            font: bold 25px Verdana;
+            line-height: 60px;
+        }
+    </style>
+<body>
+    <header>
+        <img src="../02.CSS3/resources/img/IMG_8666.jpg">
+        <form action="login.do" id="login">
+            id <input name="id" size="15">&emsp; 
+            pw <input type="password" name="pw" size="15">
+            <input type="submit" value="로그인">
+        </form>
+    </header>
+    
+    <ul>
+        <li><a href="" data-bg="#DAD9FF">선택1</a></li>
+        <li><a href="" data-bg="#FFD8D8">선택2</a></li>
+        <li><a href="" data-bg="#CEFBC9">선택3</a></li>
+    </ul>
+
+</body>
+</html>
