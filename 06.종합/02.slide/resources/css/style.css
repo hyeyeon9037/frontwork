@@ -10,8 +10,8 @@ header>div {float: left;}
 header>div>img {width: 100px; margin-top: 25px;}
 
 header>nav{float: right; margin-top: 25px; padding: 10px;}
-.nav>li {background-color: rgb(255, 224, 255); float: left; width: 200px; text-align: center; position: relative; padding: 5px 0;}
-.nav>li:hover {background-color: rgb(245, 195, 245); color:white;}
+.nav>li {background-color: rgb(255, 255, 255); color: #9573b1; float: left; width: 200px; text-align: center; position: relative; padding: 5px 0;}
+.nav>li:hover {background-color: rgb(155, 33, 155); color:white;}
 /* .submenu {display: none;} */
 .submenu {display: none; position: absolute; width: 100%; margin-top: 5px; z-index: 3;}
 .submenu>li {padding: 5px 0; background-color: rgba(255,255,255,0.7);}
@@ -24,13 +24,13 @@ header>nav{float: right; margin-top: 25px; padding: 10px;}
 
 /* 본문 내용 */
 /* 본문 내용 왼쪽 공지사항 */
-h2,p,th,td{color: #a067e0; }
+h2,p,th,td{color: #ce5483; }
 .notice {float:left; width:49%; text-align:center;}
 .notice h2{text-align:center}
 .table{border-collapse:collapse; font-size:1.2em; color:#666666;}
 .table tr>th{padding:5px 0}
 .table tr>td{padding:5px; text-align: left;}
-.table tr:nth-child(2n){background-color: rgba(221, 205, 223, 0.733)}
+.table tr:nth-child(2n){background-color: rgba(58, 42, 59, 0.733)}
 
 
 /* 본문 내용 오른쪽 partner */
@@ -42,12 +42,12 @@ h2,p,th,td{color: #a067e0; }
 .icon{clear: both; text-align:center; display:flex;}
 .imgbtn{width:200px; padding: 30px; }
 .imgbtn>img{height: 130px;}
-.imgbtn button{margin-top: 5px; padding: 10px; background-color: #a067e0; color: #FFF; border: none; border-radius: 10px; font-size: 20px}
-.imgbtn>button:hover{background-color: #a8619f;}
+.imgbtn button{margin-top: 5px; padding: 10px; background-color: #cea7fa; color: #FFF; border: none; border-radius: 10px; font-size: 20px}
+.imgbtn>button:hover{background-color: #585da7;}
 button{cursor:pointer}
 
 /* footer */
-footer{font-size: 0.9em; height: 80px; padding: 20px 20px; background-color: #4298cc; overflow: hidden;}
+footer{font-size: 0.9em; height: 80px; padding: 20px 20px; background-color: #876e91; overflow: hidden;}
 footer span{color:white;}
 footer p{margin-top: 5px; color:rgb(235, 235, 235);}
 
@@ -67,4 +67,12 @@ footer p{margin-top: 5px; color:rgb(235, 235, 235);}
 
 #d {
     width: 1000px; height: 400px;
+}
+
+#logo1 {
+    width: 300px; height: 50px;
+}
+
+#bodycolor {
+    background-color: rgb(80, 78, 79);
 }
